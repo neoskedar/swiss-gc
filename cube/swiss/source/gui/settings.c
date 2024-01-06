@@ -39,6 +39,7 @@ char *disableVideoPatchesStr[] = {"None", "Game", "All"};
 char *emulateReadSpeedStr[] = {"No", "Yes", "Wii"};
 char *igrTypeStr[] = {"Disabled", "Reboot", "igr.dol"};
 char *aveCompatStr[] = {"CMPV-DOL", "GCVideo", "AVE-RVL", "AVE N-DOL"};
+char *themeColorStr[] = {"Indigo", "Jet Black", "Platinum Silver", "Spice Orange", "Pearl White"};
 char *fileBrowserStr[] = {"Standard", "Carousel"};
 char *bs2BootStr[] = {"No", "Yes", "Sound 1", "Sound 2"};
 char *sramLang[] = {"English", "German", "French", "Spanish", "Italian", "Dutch", "Japanese", "English (US)"};
@@ -60,7 +61,8 @@ static char *tooltips_global[PAGE_GLOBAL_MAX+1] = {
 	"SD/IDE Speed:\n\nThe speed to try and use on the EXI bus for SD Card Adapters or IDE-EXI devices.\n32 MHz may not work on some SD cards.",
 	"AVE Compatibility:\n\nSets the compatibility mode for the used audio/video encoder.\n\nAVE N-DOL - Output PAL as NTSC 50\nCMPV-DOL - Enable 1080i & 540p\nGCVideo - Apply firmware workarounds for GCVideo (default)\nAVE-RVL - Support 960i & 1152i without WiiVideo",
 	"Force DTV Status:\n\nDisabled - Use signal from the video interface (default)\nEnabled - Force on in case of hardware fault",
-	"Enable USB Gecko debug output:\n\nIf a USB Gecko is present in slot B, debug output from\nSwiss & in game (if the game supported output over OSReport)\nwill be output. If nothing is reading the data out from the\ndevice it may cause Swiss/games to hang."
+	"Enable USB Gecko debug output:\n\nIf a USB Gecko is present in slot B, debug output from\nSwiss & in game (if the game supported output over OSReport)\nwill be output. If nothing is reading the data out from the\ndevice it may cause Swiss/games to hang.",
+	"Change System Theme Colors:\n\nIndigo - Default Swiss theme (default)\nJet Black - Black theme\nPlatinum Silver - Silver theme\nSpice Orange - Orange theme\nPearl White - White theme"
 };
 
 static char *tooltips_network[PAGE_NETWORK_MAX+1] = {
@@ -271,6 +273,7 @@ uiDrawObj_t* settings_draw_page(int page_num, int option, ConfigEntry *gameConfi
 			drawSettingEntryString(page, &page_y_ofs, "AVE Compatibility:", aveCompatStr[swissSettings.aveCompat], option == SET_AVE_COMPAT, true);
 			drawSettingEntryBoolean(page, &page_y_ofs, "Force DTV Status:", swissSettings.forceDTVStatus, option == SET_FORCE_DTVSTATUS, true);
 			drawSettingEntryBoolean(page, &page_y_ofs, "USB Gecko debug output:", swissSettings.debugUSB, option == SET_ENABLE_USBGECKODBG, dbgEnable);
+			drawSettingEntryBoolean(page, &page_y_ofs, "Change Theme Color:", themeColorStr[swissSettings.themeColor], option == SET_THEME_COLOR, true);
 		}
 	}
 	else if(page_num == PAGE_NETWORK) {
@@ -528,6 +531,9 @@ void settings_toggle(int page, int option, int direction, ConfigEntry *gameConfi
 			case SET_ENABLE_USBGECKODBG:
 				if(devices[DEVICE_CUR] != &__device_usbgecko && deviceHandler_getDeviceAvailable(&__device_usbgecko))
 					swissSettings.debugUSB ^= 1;
+			break;
+			case SET_THEME_COLOR:
+				swissSettings.themeColor ^= 1;
 			break;
 		}
 	}
