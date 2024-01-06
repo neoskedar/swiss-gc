@@ -79,6 +79,7 @@ extern void select_device(int type);
 extern bool select_dest_dir(file_handle* directory, file_handle* selection);
 
 typedef struct {
+	int themeColor;	// 0 = Indigo, 1 = Jet Black, 2 = Platinum Silver, 3 = Spice Orange, 4 = Pearl White;
 	int debugUSB; // Debug prints over USBGecko
 	int hasDVDDrive;	// 0 if none, 1 if something
 	int exiSpeed;
