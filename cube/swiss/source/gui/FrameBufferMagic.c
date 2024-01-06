@@ -1374,12 +1374,12 @@ uiDrawObj_t* DrawTransparentBox(int x1, int y1, int x2, int y2)
 // Internal
 static void _DrawTitleBar(uiDrawObj_t *evt) {
 	
-	GXColor fillColor = (GXColor) {0,0,0,128}; //black
+	GXColor fillColor = (GXColor) {255,128,0,128}; //black
 	GXColor noColor = (GXColor) {0,0,0,0}; //blank
 	
 	_DrawSimpleBox(19, 17, 602, 62, 0, fillColor, noColor);
 	
-	drawString(40, 28, "Swiss v0.6", 1.5f, false, defaultColor);
+	drawString(40, 28, "NeoCube", 1.5f, false, defaultColor);
 	sprintf(fbTextBuffer, "commit: %s rev: %s", GITREVISION, GITVERSION);
 	drawString(425, 50, fbTextBuffer, 0.55f, false, defaultColor);
 	
@@ -1408,7 +1408,7 @@ static void _DrawMenuButtons(uiDrawObj_t *evt) {
 	
 	drawMenuButtonsEvent_t *data = (drawMenuButtonsEvent_t*)evt->data;
 	
-	GXColor fillColor = (GXColor) {255,255,255,51}; //white
+	GXColor fillColor = (GXColor) {255,128,0,51}; //white
 	GXColor noColor = (GXColor) {0,0,0,0}; //blank
 	
 	_DrawSimpleBox(19, 426, 602, 602, 0, fillColor, noColor);
