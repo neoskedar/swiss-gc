@@ -147,6 +147,7 @@ extern char *disableVideoPatchesStr[];
 extern char *emulateReadSpeedStr[];
 extern char *igrTypeStr[];
 extern char *aveCompatStr[];
+extern char *themeColorStr[];
 extern char *fileBrowserStr[];
 extern char *bs2BootStr[];
 extern char *recentListLevelStr[];
