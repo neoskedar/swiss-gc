@@ -165,6 +165,7 @@ int config_update_global(bool checkConfigDevice) {
 	fprintf(fp, "InitNetwork=%s\r\n", swissSettings.initNetworkAtStart ? "Yes":"No");
 	fprintf(fp, "IGRType=%s\r\n", igrTypeStr[swissSettings.igrType]);
 	fprintf(fp, "AVECompat=%s\r\n", aveCompatStr[swissSettings.aveCompat]);
+	fprintf(fp, "ThemeColor=%s\r\n", themeColorStr[swissSettings.themeColor]);
 	fprintf(fp, "FileBrowserType=%s\r\n", fileBrowserStr[swissSettings.fileBrowserType]);
 	fprintf(fp, "BS2Boot=%s\r\n", bs2BootStr[swissSettings.bs2Boot]);
 	fprintf(fp, "FTPUserName=%s\r\n", swissSettings.ftpUserName);
@@ -517,6 +518,14 @@ void config_parse_legacy(char *configData, void (*progress_indicator)(char*, int
 						}
 					}
 				}
+				else if(!strcmp("ThemeColor", name)) {
+					for(int i = 0; i < 4; i++) {
+						if(!strcmp(themeColorStr[i], value)) {
+							swissSettings.themeColor = i;
+							break;
+						}
+					}
+				}
 				else if(!strcmp("FileBrowserType", name)) {
 					for(int i = 0; i < 2; i++) {
 						if(!strcmp(fileBrowserStr[i], value)) {
@@ -797,6 +806,14 @@ void config_parse_global(char *configData) {
 					for(int i = 0; i < 4; i++) {
 						if(!strcmp(aveCompatStr[i], value)) {
 							swissSettings.aveCompat = i;
+							break;
+						}
+					}
+				}
+				else if(!strcmp("ThemeColor", name)) {
+					for(int i = 0; i < 4; i++) {
+						if(!strcmp(themeColorStr[i], value)) {
+							swissSettings.themeColor = i;
 							break;
 						}
 					}
