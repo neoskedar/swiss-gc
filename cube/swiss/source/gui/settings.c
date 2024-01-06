@@ -533,7 +533,11 @@ void settings_toggle(int page, int option, int direction, ConfigEntry *gameConfi
 					swissSettings.debugUSB ^= 1;
 			break;
 			case SET_THEME_COLOR:
-				swissSettings.themeColor ^= 1;
+				swissSettings.themeColor += direction;
+				if(swissSettings.themeColor > 4)
+					swissSettings.themeColor = 0;
+				if(swissSettings.themeColor < 0)
+					swissSettings.themeColor = 4;
 			break;
 		}
 	}
