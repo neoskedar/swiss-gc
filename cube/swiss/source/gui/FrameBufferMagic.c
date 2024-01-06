@@ -653,7 +653,7 @@ static void _DrawProgressBar(uiDrawObj_t *evt) {
 	int y1 = ((480/2) - (PROGRESS_BOX_HEIGHT/2));
 	int y2 = ((480/2) + (PROGRESS_BOX_HEIGHT/2));
 
-  	GXColor fillColor = (GXColor) {0,0,0,GUI_MSGBOX_ALPHA}; //black
+  	GXColor fillColor = (GXColor) {255,128,0,255}; //black
   	GXColor noColor = (GXColor) {0,0,0,0}; //blank
 	GXColor borderColor = (GXColor) {200,200,200,GUI_MSGBOX_ALPHA}; //silver
 	GXColor progressBarColor = (GXColor) {255,128,0,GUI_MSGBOX_ALPHA}; //orange
@@ -770,7 +770,7 @@ static void _DrawMessageBox(uiDrawObj_t *evt) {
 	int y1 = ((480/2) - (PROGRESS_BOX_HEIGHT/2));
 	int y2 = ((480/2) + (PROGRESS_BOX_HEIGHT/2));
 	
-  	GXColor fillColor = (GXColor) {0,0,0,GUI_MSGBOX_ALPHA}; //black
+  	GXColor fillColor = (GXColor) {255,128,0,255}; //black
 	GXColor borderColor = (GXColor) {200,200,200,GUI_MSGBOX_ALPHA}; //silver
 	
 	_DrawSimpleBox( x1, y1, x2-x1, y2-y1, 0, fillColor, borderColor); 
@@ -1374,7 +1374,7 @@ uiDrawObj_t* DrawTransparentBox(int x1, int y1, int x2, int y2)
 // Internal
 static void _DrawTitleBar(uiDrawObj_t *evt) {
 	
-	GXColor fillColor = (GXColor) {255,128,0,128}; //black
+	GXColor fillColor = (GXColor) {255,128,0,255}; //black
 	GXColor noColor = (GXColor) {0,0,0,0}; //blank
 	
 	_DrawSimpleBox(19, 17, 602, 62, 0, fillColor, noColor);
@@ -1408,7 +1408,7 @@ static void _DrawMenuButtons(uiDrawObj_t *evt) {
 	
 	drawMenuButtonsEvent_t *data = (drawMenuButtonsEvent_t*)evt->data;
 	
-	GXColor fillColor = (GXColor) {255,128,0,51}; //white
+	GXColor fillColor = (GXColor) {255,128,0,255}; //white
 	GXColor noColor = (GXColor) {0,0,0,0}; //blank
 	
 	_DrawSimpleBox(19, 426, 602, 602, 0, fillColor, noColor);
@@ -1485,7 +1485,7 @@ static void _DrawVertScrollBar(uiDrawObj_t *evt) {
 	if(scrollStartY + data->scrollHeight +3 > y2)
 		scrollStartY = y2-data->scrollHeight-3;
 	
-	GXColor fillColor = (GXColor) {46,57,104,GUI_MSGBOX_ALPHA}; 	//bluish
+	GXColor fillColor = (GXColor) {255,128,0,255}; 	//bluish
   	GXColor noColor = (GXColor) {0,0,0,0}; //blank
 	GXColor borderColor = (GXColor) {200,200,200,GUI_MSGBOX_ALPHA}; //silver
 	
