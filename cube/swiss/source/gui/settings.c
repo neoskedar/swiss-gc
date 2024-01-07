@@ -273,7 +273,7 @@ uiDrawObj_t* settings_draw_page(int page_num, int option, ConfigEntry *gameConfi
 			drawSettingEntryString(page, &page_y_ofs, "AVE Compatibility:", aveCompatStr[swissSettings.aveCompat], option == SET_AVE_COMPAT, true);
 			drawSettingEntryBoolean(page, &page_y_ofs, "Force DTV Status:", swissSettings.forceDTVStatus, option == SET_FORCE_DTVSTATUS, true);
 			drawSettingEntryBoolean(page, &page_y_ofs, "USB Gecko debug output:", swissSettings.debugUSB, option == SET_ENABLE_USBGECKODBG, dbgEnable);
-			drawSettingEntryBoolean(page, &page_y_ofs, "Change Theme Color:", uiVModeStr[swissSettings.uiVMode], option == SET_SWISS_VIDEOMODE, true);
+			drawSettingEntryBoolean(page, &page_y_ofs, "Change Theme Color:", themeColorStr[swissSettings.themeColor], option == SET_THEME_COLOR, true);
 		}
 	}
 	else if(page_num == PAGE_NETWORK) {
